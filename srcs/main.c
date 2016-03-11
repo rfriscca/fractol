@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:43:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/11 13:35:23 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/03/11 14:48:02 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		main(int argc, char **argv)
 {
 	t_stock	stock;
 	t_init	data;
+	int		endian;
 
 	data.width = (X2 - X1) * ZOOM;
 	data = ft_init_data_julia(data, 1, 1);
@@ -34,6 +35,8 @@ int		main(int argc, char **argv)
 	stock.win = mlx_new_window(stock.mlx, stock.width, stock.height, "Fractol");
 	mlx_key_hook(stock.win, ft_exit, &stock);
 	stock.data = data;
+	stock.img_data = mlx_get_data_addr(stock.img, &stock.bits_per_pixel,
+		&stock.size_line, &endian);
 	julia(stock, data, 0x00ffff);
 	mlx_hook(stock.win, 6, (1L<<6), mouse_motion, &stock);
 	//mlx_mouse_hook(stock.win, mouse_event, &stock);

@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:22:37 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/11 13:37:06 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:08:36 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 t_init	ft_init_data_julia(t_init data, double x, double y)
 {
 	data.x = x / 1000;
-	data.y = y / 1000;
+	data.y = y / 2000;
 	data.x1 = X1J;
 	data.x2 = X2J;
 	data.y1 = Y1;

@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/11 14:27:04 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:29:15 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ int		swap_color(int n, int color, t_stock stock)
 	return ((red << 16) + (green << 8) + blue);
 }
 
-void	mandelbrot_2(t_count i, t_ima z, t_stock stock, int color)
+void	mandelbrot_2(t_count i, t_ima z, t_stock *stock, int color)
 {
 	double		save;
 
-	while (z.z_r * z.z_r + z.z_i * z.z_i < 4 && i.i < stock.data.it_max)
+	while (z.z_r * z.z_r + z.z_i * z.z_i < 4 && i.i < stock->data.it_max)
 	{
 		save = z.z_r;
 		z.z_r = z.z_r * z.z_r - z.z_i * z.z_i + z.c_r;
 		z.z_i = 2 * z.z_i * save + z.c_i;
 		++i.i;
 	}
-	if (i.i < stock.data.it_max)
+	if (i.i < stock->data.it_max)
 	{
-		mlx_pixel_put(stock.mlx, stock.win, i.x, i.y,
-				swap_color(i.i, color, stock));
+		mlx_pixel_put_img(stock->img_data, i,
+				stock->size_line, swap_color(i.i, color, *stock));
 	}
 }
 
@@ -56,7 +56,7 @@ void	mandelbrot(t_stock stock, t_init data, int color)
 	t_ima	z;
 	t_count	i;
 
-	mlx_clear_window(stock.mlx, stock.win);
+	mlx_clear_img(stock.img_data, stock.width, stock.height);
 	i.x = 0;
 	i.y = 0;
 	i.i = 0;
@@ -70,10 +70,11 @@ void	mandelbrot(t_stock stock, t_init data, int color)
 			z.z_r = 0;
 			z.z_i = 0;
 			i.i = 0;
-			mandelbrot_2(i, z, stock, color);
+			mandelbrot_2(i, z, &stock, color);
 			++i.y;
 		}
 		i.y = 0;
 		++i.x;
 	}
+	mlx_put_image_to_window(stock.mlx, stock.win, stock.img, 0, 0);
 }

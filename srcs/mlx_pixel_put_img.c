@@ -6,13 +6,13 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:46:23 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/11 15:06:58 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:27:52 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-char	*mlx_clear_img(char *data, int width, int height)
+void	mlx_clear_img(char *data, int width, int height)
 {
 	int		i;
 	int		length;
@@ -24,10 +24,9 @@ char	*mlx_clear_img(char *data, int width, int height)
 		data[i] = 0;
 		++i;
 	}
-	return (data);
 }
 
-char	*mlx_pixel_put_img(char *data, t_count i, int size_line, int color)
+void	mlx_pixel_put_img(char *data, t_count i, int size_line, int color)
 {
 	int		goto_pixel;
 
@@ -36,5 +35,4 @@ char	*mlx_pixel_put_img(char *data, t_count i, int size_line, int color)
 	data[goto_pixel + 1] = ((color & 0x00ff00) >> 8);
 	data[goto_pixel + 2] = (color & 0x0000ff);
 	data[goto_pixel + 3] = 0;
-	return (data);
 }

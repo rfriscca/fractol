@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 12:51:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/11 15:07:39 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:25:59 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ int					mouse_motion(int x, int y, t_stock *param);
 int					swap_color(int n, int color, t_stock stock);
 t_init				ft_init_data_zoom(t_init data, double x, double y, double h);
 t_init				ft_init_data_dezoom(t_init data, double x, double y, double h);
-char				*mlx_pixel_put_img(char *data, t_count i, int size_line, int color);
-char				*mlx_clear_img(char *data, int width, int height);
+void				mlx_pixel_put_img(char *data, t_count i, int size_line, int color);
+void				mlx_clear_img(char *data, int width, int height);
 
 
 #endif

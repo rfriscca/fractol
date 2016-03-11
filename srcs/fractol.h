@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 12:51:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/07 13:32:53 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/03/11 13:39:13 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,27 @@
 # include <fcntl.h>
 # include <math.h>
 
+# define X1J -1.4
+# define X2J 1
 # define X1 -2.1
 # define X2 0.6
 # define Y1 -1.2
 # define Y2 1.2
-# define ZOOM 400
-# define IT_MAX 200
+# define ZOOM 250
+# define IT_MAX 100
 
 typedef struct		s_init
 {
+	double			x;
+	double			y;
 	double			x1;
 	double			x2;
 	double			y1;
 	double			y2;
 	int				zoom;
-	int				it_max;
 	int				width;
+	int				it_max;
+	int				it;
 }					t_init;
 
 typedef struct		s_stock
@@ -63,9 +68,15 @@ typedef struct		s_count
 }					t_count;
 
 void				mandelbrot(t_stock stock, t_init data, int color);
+void				julia(t_stock stock, t_init data, int color);
 void				color_panel(t_stock stock);
 t_init				ft_init_data(t_init data);
+t_init				ft_init_data_julia(t_init data, double x, double y);
 int					mouse_event(int button, int x, int y, t_stock *param);
+int					mouse_motion(int x, int y, t_stock *param);
+int					swap_color(int n, int color, t_stock stock);
 t_init				ft_init_data_zoom(t_init data, double x, double y, double h);
+t_init				ft_init_data_dezoom(t_init data, double x, double y, double h);
+
 
 #endif

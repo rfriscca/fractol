@@ -6,11 +6,18 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:05:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/07 13:44:12 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/03/11 13:34:45 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int		mouse_motion(int x, int y, t_stock *param)
+{
+	param->data = ft_init_data_julia(param->data, (double)x, (double)y);
+	julia(*(t_stock*)param, param->data, 0xffffff);
+	return (0);
+}
 
 int		mouse_event(int button, int x, int y, t_stock *param)
 {
@@ -26,6 +33,12 @@ int		mouse_event(int button, int x, int y, t_stock *param)
 		param->data = ft_init_data_zoom(param->data, x2, y2, h);
 		mandelbrot(*(t_stock*)param, param->data, color);
 		h = h / 2;
+	}
+	if (button == 2)
+	{
+		param->data = ft_init_data_dezoom(param->data, x2, y2, h);
+		mandelbrot(*(t_stock*)param, param->data, color);
+		h = h * 2;
 	}
 	return (0);
 }

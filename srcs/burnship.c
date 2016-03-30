@@ -6,42 +6,21 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/30 14:34:49 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/03/30 13:06:48 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		swap_color(int n, int color, t_stock stock)
-{
-	int			red;
-	int 		green;
-	int			blue;
-
-	if (n > stock.data.it_max / 3 && n < stock.data.it_max / 2)
-	{
-		red = ((color & 0xff0000) >> 16) * n / stock.data.it_max;
-		green = ((color & 0x00ff00) >> 8) * n / stock.data.it_max * 0;
-		blue = (color & 0x0000ff) * n / stock.data.it_max;
-	}
-	else
-	{
-		red = ((color & 0xff0000) >> 16) * n / stock.data.it_max;
-		green = ((color & 0x00ff00) >> 8) * n / stock.data.it_max;
-		blue = (color & 0x0000ff) * n / stock.data.it_max;
-	}
-	return ((red << 16) + (green << 8) + blue);
-}
-
-void	mandelbrot_2(t_count i, t_ima z, t_stock *stock, int color)
+void	burnship2(t_count i, t_ima z, t_stock *stock, int color)
 {
 	double		save;
 
 	while (z.z_r * z.z_r + z.z_i * z.z_i < 4 && i.i < stock->data.it_max)
 	{
 		save = z.z_r;
-		z.z_r = z.z_r * z.z_r - z.z_i * z.z_i + z.c_r;
-		z.z_i = 2 * z.z_i * save + z.c_i;
+		z.z_r = fabs(z.z_r * z.z_r - z.z_i * z.z_i + z.c_r);
+		z.z_i = fabs(2 * z.z_i * save + z.c_i);
 		++i.i;
 	}
 	if (i.i < stock->data.it_max)
@@ -51,7 +30,7 @@ void	mandelbrot_2(t_count i, t_ima z, t_stock *stock, int color)
 	}
 }
 
-void	mandelbrot(t_stock stock, t_init data, int color)
+void	burnship(t_stock stock, t_init data, int color)
 {
 	t_ima	z;
 	t_count	i;
@@ -70,7 +49,7 @@ void	mandelbrot(t_stock stock, t_init data, int color)
 			z.z_r = 0;
 			z.z_i = 0;
 			i.i = 0;
-			mandelbrot_2(i, z, &stock, color);
+			burnship2(i, z, &stock, color);
 			++i.y;
 		}
 		i.y = 0;

@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 13:35:29 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/01 16:49:13 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/04 16:22:43 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	draw_first_square(t_stock stock, int length, int x, int y)
 	}
 }
 
-void	sierpinski_carpet(t_stock stock)
+void	sierpinski_carpet(t_stock stock, int x, int y, int add)
 {
 	double		i;
 	double		j;
@@ -56,12 +56,14 @@ void	sierpinski_carpet(t_stock stock)
 	double	 	count;
 	double		save;
 
+	stock.img_data = mlx_get_data_addr(stock.img, &stock.bits_per_pixel,
+			&stock.size_line, &n);
 	n = 1;
 	count = 0;
 	i = 0;
 	j = 0;
-	draw_first_square(stock, SQUARE_SIZE, 100, 100);
-	while ((save = SQUARE_SIZE / pow(3, (double)n)) > 1)
+	draw_first_square(stock, SQUARE_SIZE + add, x, y);
+	while ((save = (SQUARE_SIZE + (double)add) / pow(3, (double)n)) > 1)
 	{
 		count = pow(9, (double)n - 1);
 		while (i < sqrt(count))
@@ -69,13 +71,13 @@ void	sierpinski_carpet(t_stock stock)
 			while (j < sqrt(count))
 			{
 				if (j >= 1 && i >= 1)
-					draw_square(stock, save, j * 3 * save + save + 100, i * 3 * save + save + 100);
+					draw_square(stock, save, j * 3 * save + save, i * 3 * save + save);
 				else if (j >= 1)
-					draw_square(stock, save, j * 3 * save + save + 100, (i + 1) * save + 100);
+					draw_square(stock, save, j * 3 * save + save, (i + 1) * save);
 				else if (i >= 1)
-					draw_square(stock, save, (j + 1) * save + 100, i * 3 * save + save + 100);
+					draw_square(stock, save, (j + 1) * save, i * 3 * save + save);
 				else
-					draw_square(stock, save, (j + 1) * save + 100, (i + 1) * save + 100);
+					draw_square(stock, save, (j + 1) * save, (i + 1) * save);
 				++j;
 			}
 			j = 0;

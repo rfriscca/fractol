@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:05:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/04 14:07:39 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/04 15:40:09 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,23 @@ int		mouse_event(int button, int x, int y, t_stock *param)
 		dezoom = destroy_dezoom(dezoom);
 		mandelbrot(*(t_stock*)param, param->data, color);
 	}
+	return (0);
+}
+
+int		mouse_event_carpet(int button, int x, int y, t_stock *param)
+{
+	int				x2;
+	int				y2;
+	static int		add = 0;
+
+	mlx_destroy_image(param->mlx, param->img);
+	if (button == 1)
+		add = add + 100;
+	if (button == 2)
+		add = add - 100;
+	param->img = mlx_new_image(param->mlx, param->width + add, param->height + add);
+	x2 = x - param->width / 2 - add;
+	y2 = y - param->height / 2 - add;
+	sierpinski_carpet(*param, 0, 0, add);
 	return (0);
 }

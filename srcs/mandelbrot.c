@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/04 12:50:21 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/04 17:00:42 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		swap_color(int n, int color, t_stock stock)
 {
 	int			red;
-	int 		green;
+	int			green;
 	int			blue;
 
 	if (n > stock.data.it_max / 3 && n < stock.data.it_max / 2)
@@ -47,7 +47,7 @@ void	mandelbrot_2(t_count i, t_ima z, t_stock *stock, int color)
 	if (i.i < stock->data.it_max)
 	{
 		mlx_pixel_put_img(stock->img_data, i,
-				stock->size_line, swap_color(i.i, color, *stock));
+		stock->size_line, swap_color(i.i, color, *stock));
 	}
 }
 

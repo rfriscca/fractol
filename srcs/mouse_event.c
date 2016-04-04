@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:05:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/04 15:40:09 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/04 16:59:56 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ int		mouse_event_carpet(int button, int x, int y, t_stock *param)
 		add = add + 100;
 	if (button == 2)
 		add = add - 100;
-	param->img = mlx_new_image(param->mlx, param->width + add, param->height + add);
+	param->img = mlx_new_image(param->mlx, param->width + add,
+			param->height + add);
 	x2 = x - param->width / 2 - add;
 	y2 = y - param->height / 2 - add;
 	sierpinski_carpet(*param, 0, 0, add);

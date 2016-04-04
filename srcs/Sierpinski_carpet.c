@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 13:35:29 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/30 16:10:37 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/01 16:49:13 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,18 @@ void	draw_first_square(t_stock stock, int length, int x, int y)
 
 void	sierpinski_carpet(t_stock stock)
 {
-	double		l;
 	double		i;
 	double		j;
 	int			n;
 	double	 	count;
 	double		save;
 
-	l = SQUARE_SIZE;
 	n = 1;
 	count = 0;
 	i = 0;
 	j = 0;
-	draw_first_square(stock, (int)l, 100, 100);
-	while ((save = l / pow(3, (double)n)) > 1)
+	draw_first_square(stock, SQUARE_SIZE, 100, 100);
+	while ((save = SQUARE_SIZE / pow(3, (double)n)) > 1)
 	{
 		count = pow(9, (double)n - 1);
 		while (i < sqrt(count))

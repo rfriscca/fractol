@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:22:37 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/11 15:08:36 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/04 13:40:33 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ t_init 	ft_init_data_dezoom(t_init data, double x, double y, double h)
 
 	x1 = data.x1;
 	y1 = data.y1;
-	data.x1 = x - h + x1;
-	data.x2 = x + h + x1;
-	data.y1 = y - h + y1;
-	data.y2 = y + h + y1;
-	data.zoom = (double)data.zoom * (data.x2 - data.x1);
-	data.it_max = IT_MAX + data.it - 100;
+	data.zoom = (double)data.width * (data.x2 - data.x1);
+	data.x1 = x - h + X1;
+	data.x2 = x - h + X2;
+	data.y1 = y - h + Y1;
+	data.y2 = y - h	+ Y2;
+	data.it_max = IT_MAX + data.it;
 	data.it = data.it - 100;
 	data.width = data.width;
 	return (data);

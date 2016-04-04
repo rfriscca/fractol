@@ -6,11 +6,34 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:05:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/30 13:02:56 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/04 14:07:39 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+t_dez	*new_dezoom(t_dez *dezoom, t_stock *param)
+{
+	t_dez	*n_dezoom;
+
+	if ((n_dezoom = (t_dez*)malloc(sizeof(*n_dezoom))) == NULL)
+	{
+		ft_putstr("malloc failed");
+		exit(0);
+	}
+	n_dezoom->data = param->data;
+	n_dezoom->next = dezoom;
+	return (n_dezoom);
+}
+
+t_dez	*destroy_dezoom(t_dez *dezoom)
+{
+	t_dez	*save;
+
+	save = dezoom->next;
+	free(dezoom);
+	return (save);
+}
 
 int		mouse_motion(int x, int y, t_stock *param)
 {
@@ -24,21 +47,24 @@ int		mouse_event(int button, int x, int y, t_stock *param)
 	double			x2;
 	double			y2;
 	static int		color = 0xffffff;
-	static double	h = 1;
+	static double	h = 2;
+	static t_dez	*dezoom = NULL;
 
 	x2 = (double)x / (double)param->width * (param->data.x2 - param->data.x1);
 	y2 = (double)y / (double)param->height * (param->data.y2 - param->data.y1);
 	if (button == 1)
 	{
+		dezoom = new_dezoom(dezoom, param);
+		h = h / 2;
 		param->data = ft_init_data_zoom(param->data, x2, y2, h);
 		mandelbrot(*(t_stock*)param, param->data, color);
-		h = h / 2;
 	}
-	if (button == 2)
+	if (button == 2 && dezoom)
 	{
-		param->data = ft_init_data_dezoom(param->data, x2, y2, h);
-		mandelbrot(*(t_stock*)param, param->data, color);
 		h = h * 2;
+		param->data = dezoom->data;
+		dezoom = destroy_dezoom(dezoom);
+		mandelbrot(*(t_stock*)param, param->data, color);
 	}
 	return (0);
 }

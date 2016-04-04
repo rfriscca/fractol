@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:43:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/30 14:58:38 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/04 12:50:41 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		main(int argc, char **argv)
 	stock.data = data;
 	stock.img_data = mlx_get_data_addr(stock.img, &stock.bits_per_pixel,
 		&stock.size_line, &endian);
-	Sierpinski_carpet(stock);
+	sierpinski_carpet(stock);
 	//burnship(stock, data, 0x00ffff);
 	//mlx_hook(stock.win, 6, (1L<<6), mouse_motion, &stock);
 	mlx_mouse_hook(stock.win, mouse_event, &stock);

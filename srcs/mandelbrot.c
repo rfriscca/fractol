@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/03/30 14:34:49 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/04 12:50:21 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	mandelbrot(t_stock stock, t_init data, int color)
 {
 	t_ima	z;
 	t_count	i;
+	int		endian;
 
 	mlx_clear_img(stock.img_data, stock.width, stock.height);
 	i.x = 0;

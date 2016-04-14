@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:43:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/14 12:37:15 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/14 13:10:34 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,12 @@ int		ft_exit(int n)
 
 void	choose_fractal(int n, t_stock stock)
 {
-	t_init	data;
-
 	if (n == 1)
 	{
-		data.width = (X2 - X1) * ZOOM;
-		data = ft_init_data(data);
-		stock.data = data;
+		stock.data.width = (X2 - X1) * ZOOM;
+		stock.data = ft_init_data(stock.data);
 		mlx_mouse_hook(stock.win, mouse_event, &stock);
-		mandelbrot(stock, data, 0xffffff);
+		mandelbrot(stock, stock.data, 0xffffff);
 	}
 	else if (n == 2)
 	{

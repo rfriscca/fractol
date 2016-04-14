@@ -6,7 +6,7 @@
 #    By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/16 13:06:21 by rfriscca          #+#    #+#              #
-#    Updated: 2016/03/18 13:29:26 by rfriscca         ###   ########.fr        #
+#    Updated: 2016/04/05 15:56:02 by rfriscca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ INCLUDES = -I libft/
 SRCS_DIR = srcs
 SRCS = init_data.c          \
        julia.c              \
+	   sierpinski_carpet.c	\
 	   main.c               \
 	   mandelbrot.c         \
 	   mlx_pixel_put_img.c  \

@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/05 13:41:43 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/14 12:39:21 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	mandelbrot_2(t_count i, t_ima z, t_stock stock, int color)
 	}
 	if (i.i < stock.data.it_max)
 	{
-		mlx_pixel_put(stock.mlx, stock.win, i.x, i.y,
+		mlx_pixel_put_img(stock.img_data, i, stock.size_line,
 				swap_color(i.i, color, stock));
 	}
 }
@@ -56,7 +56,7 @@ void	mandelbrot(t_stock stock, t_init data, int color)
 	t_ima	z;
 	t_count	i;
 
-	mlx_clear_window(stock.mlx, stock.win);
+	mlx_clear_img(stock.img_data, stock.width, stock.height);
 	i.x = 0;
 	i.y = 0;
 	i.i = 0;
@@ -76,4 +76,5 @@ void	mandelbrot(t_stock stock, t_init data, int color)
 		i.y = 0;
 		++i.x;
 	}
+	mlx_put_image_to_window(stock.mlx, stock.win, stock.img, 0, 0);
 }

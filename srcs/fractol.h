@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 12:51:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/14 12:52:12 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/14 13:21:38 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_init				ft_init_data_julia(t_init data, double x, double y);
 int					mouse_event(int button, int x, int y, t_stock *param);
 int					mouse_event_carpet(int button, int x, int y, t_stock *param);
 int					mouse_motion(int x, int y, t_stock *param);
-int					swap_color(int n, int color, t_stock stock);
+int					swap_color(int n, int color);
 t_init				ft_init_data_zoom(t_init data, double x, double y, double h);
 t_init				ft_init_data_dezoom(t_init data, double x, double y, double h);
 void				mlx_pixel_put_img(char *data, t_count i, int size_line, int color);

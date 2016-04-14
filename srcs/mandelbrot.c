@@ -6,29 +6,29 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/14 13:04:52 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/14 13:27:43 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		swap_color(int n, int color, t_stock stock)
+int		swap_color(int n, int color)
 {
 	int			red;
 	int			green;
 	int			blue;
 
+	red = ((color & 0xff0000) >> 16);
+	green = ((color & 0x00ff00) >> 8);
+	blue = ((color & 0x0000ff));
 	if (n % 100 > 0 && n % 100 < 10)
+		green = 0;
+	else if (n % 100 >= 10 && n % 100 < 50)
+		red = 0;
+	else if (n % 100 >= 50 && n % 100 < 85)
 	{
-		red = ((color & 0xff0000) >> 16);
-		green = ((color & 0x00ff00) >> 8) * 0;
-		blue = (color & 0x0000ff);
-	}
-	else
-	{
-		red = ((color & 0xff0000) >> 16) * n / stock.data.it_max;
-		green = ((color & 0x00ff00) >> 8) * n / stock.data.it_max;
-		blue = (color & 0x0000ff) * n / stock.data.it_max;
+		green = 0;
+		blue = 0;
 	}
 	return ((red << 16) + (green << 8) + blue);
 }
@@ -47,7 +47,7 @@ void	mandelbrot_2(t_count i, t_ima z, t_stock stock, int color)
 	if (i.i < stock.data.it_max)
 	{
 		mlx_pixel_put_img(stock.img_data, i, stock.size_line,
-				swap_color(i.i, color, stock));
+				swap_color(i.i, color));
 	}
 }
 

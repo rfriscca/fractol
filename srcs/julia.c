@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 16:08:46 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/05 12:42:29 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/14 13:21:20 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	julia_2(t_count i, t_ima z, t_stock *stock, int color)
 	if (i.i < stock->data.it_max)
 	{
 		mlx_pixel_put_img(stock->img_data, i,
-				stock->size_line, swap_color(i.i, color, *stock));
+				stock->size_line, swap_color(i.i, color));
 	}
 }
 

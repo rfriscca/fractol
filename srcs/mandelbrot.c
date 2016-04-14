@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/14 12:39:21 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/04/14 12:51:38 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int		swap_color(int n, int color, t_stock stock)
 	int 		green;
 	int			blue;
 
-	if (n > stock.data.it_max / 3 && n < stock.data.it_max / 2)
+	if (n % 100 > 0 && n % 100 < 10)
 	{
-		red = ((color & 0xff0000) >> 16) * n / stock.data.it_max;
-		green = ((color & 0x00ff00) >> 8) * n / stock.data.it_max * 0;
-		blue = (color & 0x0000ff) * n / stock.data.it_max;
+		red = ((color & 0xff0000) >> 16);
+		green = ((color & 0x00ff00) >> 8) * 0;
+		blue = (color & 0x0000ff);
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 #    By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/16 13:06:21 by rfriscca          #+#    #+#              #
-#    Updated: 2016/04/14 13:11:49 by rfriscca         ###   ########.fr        #
+#    Updated: 2016/06/23 16:31:05 by rfriscca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS = init_data.c          \
 	   main.c               \
 	   mandelbrot.c         \
 	   mlx_pixel_put_img.c  \
-	   mouse_event.c
+	   mouse_event.c		\
+	   mouse_event_julia.c
 OBJ = $(SRCS:.c=.o)
 NAME = fractol
 LIBFT_DIR = libft

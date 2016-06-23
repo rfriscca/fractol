@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:05:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/04/05 13:42:32 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/23 16:28:38 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ t_dez	*destroy_dezoom(t_dez *dezoom)
 
 int		mouse_motion(int x, int y, t_stock *param)
 {
-	param->data = ft_init_data_julia(param->data, (double)x, (double)y);
+	if (param->stopjulia == 0)
+		param->data = ft_init_data_julia(param->data, (double)x, (double)y);
 	julia(*(t_stock*)param, param->data, 0xffffff);
 	return (0);
 }

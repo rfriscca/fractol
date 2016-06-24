@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 12:51:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/24 14:41:19 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/24 15:14:22 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct		s_init
 typedef struct		s_dez
 {
 	t_init			data;
-	struct	s_dez	*next;
+	struct s_dez	*next;
 }					t_dez;
 
 typedef struct		s_stock
@@ -94,12 +94,16 @@ t_init				ft_init_data_julia(t_init data, double x, double y);
 t_init				ft_motion_julia(t_init data, double x, double y);
 int					mouse_event_julia(int button, int x, int y, t_stock *param);
 int					mouse_event(int button, int x, int y, t_stock *param);
-int					mouse_event_carpet(int button, int x, int y, t_stock *param);
+int					mouse_event_carpet(int button, int x, int y,
+		t_stock *param);
 int					mouse_motion(int x, int y, t_stock *param);
 int					swap_color(int n, int color);
-t_init				ft_init_data_zoom(t_init data, double x, double y, double h);
-t_init				ft_init_data_dezoom(t_init data, double x, double y, double h);
-void				mlx_pixel_put_img(char *data, t_count i, int size_line, int color);
+t_init				ft_init_data_zoom(t_init data, double x, double y,
+		double h);
+t_init				ft_init_data_dezoom(t_init data, double x, double y,
+		double h);
+void				mlx_pixel_put_img(char *data, t_count i, int size_line,
+		int color);
 void				mlx_clear_img(char *data, int width, int height);
 t_dez				*new_dezoom(t_dez *dezoom, t_stock *param);
 t_dez				*destroy_dezoom(t_dez *dezoom);

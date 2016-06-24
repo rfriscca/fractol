@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:43:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/24 14:39:52 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/24 15:15:12 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,9 @@ int		ft_exit(int n, t_stock *param)
 	return (0);
 }
 
-void	choose_fractal(int n, t_stock *stock)
+void	choose_fractal2(int n, t_stock *stock)
 {
-	stock->data = (t_init*)malloc(sizeof(*stock->data));
-	if (n == 1)
-	{
-		stock->data->width = (X2 - X1) * ZOOM;
-		*stock->data = ft_init_data(*stock->data);
-		mlx_mouse_hook(stock->win, mouse_event, stock);
-		mandelbrot(*stock, 0xffffff);
-	}
-	else if (n == 2)
+	if (n == 2)
 	{
 		stock->data->width = (X2 - X1) * ZOOM;
 		*stock->data = ft_init_data_julia(*stock->data, 0, 0);
@@ -47,6 +39,20 @@ void	choose_fractal(int n, t_stock *stock)
 		mlx_mouse_hook(stock->win, mouse_event_carpet, stock);
 		sierpinski_carpet(*stock, 0, 0, 0);
 	}
+}
+
+void	choose_fractal(int n, t_stock *stock)
+{
+	stock->data = (t_init*)malloc(sizeof(*stock->data));
+	if (n == 1)
+	{
+		stock->data->width = (X2 - X1) * ZOOM;
+		*stock->data = ft_init_data(*stock->data);
+		mlx_mouse_hook(stock->win, mouse_event, stock);
+		mandelbrot(*stock, 0xffffff);
+	}
+	else if (n == 2 || n == 3)
+		choose_fractal2(n, stock);
 	else
 	{
 		ft_putstr("Please enter one parameter\n1 : Mandelbrot\n2 : Julia\n");

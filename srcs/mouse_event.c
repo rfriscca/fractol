@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:05:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/24 14:57:01 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/24 15:09:19 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int		mouse_event(int button, int x, int y, t_stock *param)
 	static double	h = 1;
 
 	x2 = (double)x / (double)param->width * (param->data->x2 - param->data->x1);
-	y2 = (double)y / (double)param->height * (param->data->y2 - param->data->y1);
+	y2 = (double)y / (double)param->height *
+		(param->data->y2 - param->data->y1);
 	if (button == 1 || button == 5)
 	{
 		h = h / 2;

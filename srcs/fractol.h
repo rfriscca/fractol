@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 12:51:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/24 13:31:30 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/24 14:41:19 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct		s_stock
 	int				bits_per_pixel;
 	int				size_line;
 	int				stopjulia;
-	t_init			data;
+	t_init			*data;
 }					t_stock;
 
 typedef	struct		s_img
@@ -84,13 +84,14 @@ typedef struct		s_count
 	int				y;
 }					t_count;
 
-void				mandelbrot(t_stock stock, t_init data, int color);
+void				mandelbrot(t_stock stock, int color);
 void				burnship(t_stock stock, t_init data, int color);
 void				sierpinski_carpet(t_stock stock, int x, int y, int add);
-void				julia(t_stock stock, t_init data, int color);
+void				julia(t_stock stock, int color);
 void				color_panel(t_stock stock);
 t_init				ft_init_data(t_init data);
 t_init				ft_init_data_julia(t_init data, double x, double y);
+t_init				ft_motion_julia(t_init data, double x, double y);
 int					mouse_event_julia(int button, int x, int y, t_stock *param);
 int					mouse_event(int button, int x, int y, t_stock *param);
 int					mouse_event_carpet(int button, int x, int y, t_stock *param);

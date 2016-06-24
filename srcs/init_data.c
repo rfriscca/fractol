@@ -6,11 +6,18 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:22:37 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/24 13:34:23 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/24 14:40:43 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+t_init	ft_motion_julia(t_init data, double x, double y)
+{
+	data.x = x / 1000;
+	data.y = y / 2000;
+	return (data);
+}
 
 t_init	ft_init_data_julia(t_init data, double x, double y)
 {

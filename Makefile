@@ -6,7 +6,7 @@
 #    By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/16 13:06:21 by rfriscca          #+#    #+#              #
-#    Updated: 2016/06/23 16:31:05 by rfriscca         ###   ########.fr        #
+#    Updated: 2016/06/27 14:23:18 by rfriscca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,4 +53,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re LIBFT MLX

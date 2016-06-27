@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 15:05:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/24 15:09:19 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/27 13:17:31 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int		mouse_event_carpet(int button, int x, int y, t_stock *param)
 	static int		add = 0;
 
 	mlx_destroy_image(param->mlx, param->img);
-	if (button == 1)
+	if (button == 1 || button == 5)
 		add = add + 100;
-	if (button == 2 && add > 0)
+	if ((button == 2 || button == 4) && add > 0)
 		add = add - 100;
 	param->img = mlx_new_image(param->mlx, param->width + add,
 			param->height + add);

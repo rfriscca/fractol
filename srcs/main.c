@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:43:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/29 15:42:14 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/29 15:53:36 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	choose_fractal2(int n, t_stock *stock)
 	}
 	else if (n == 3)
 	{
-		mlx_key_hook(stock->win, rand_mandel, stock);
+		mlx_key_hook(stock->win, key_carpet, stock);
 		mlx_mouse_hook(stock->win, mouse_event_carpet, stock);
 		sierpinski_carpet(*stock, 0, 0, 0);
 	}

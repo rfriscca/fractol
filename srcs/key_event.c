@@ -6,11 +6,20 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/29 14:29:33 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/29 15:44:47 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/29 15:53:01 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int		key_carpet(int n, t_stock *param)
+{
+	if (n == 53)
+	{
+		free(param->data);
+		exit (1);
+	}
+}
 
 int		rand_mandel(int n, t_stock *param)
 {

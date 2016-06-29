@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/24 16:48:20 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/29 14:53:42 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,11 @@ int		swap_color(int n, int color)
 	green = ((color & 0x00ff00) >> 8);
 	blue = ((color & 0x0000ff));
 	if (n % 100 > 0 && n % 100 < 10)
-		green = 0;
+		green += rand();
 	else if (n % 100 >= 10 && n % 100 < 50)
-		red = 0;
+		red += rand();
 	else if (n % 100 >= 50 && n % 100 < 85)
-	{
-		green = 0;
-		blue = 0;
-	}
+		blue += rand();
 	return ((red << 16) + (green << 8) + blue);
 }
 

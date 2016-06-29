@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 12:51:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/24 15:14:22 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/29 14:33:15 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct		s_stock
 	int				bits_per_pixel;
 	int				size_line;
 	int				stopjulia;
+	int				color;
 	t_init			*data;
 }					t_stock;
 
@@ -98,6 +99,8 @@ int					mouse_event_carpet(int button, int x, int y,
 		t_stock *param);
 int					mouse_motion(int x, int y, t_stock *param);
 int					swap_color(int n, int color);
+int					rand_mandel(int n, t_stock *param);
+int					rand_julia(int n, t_stock *param);
 t_init				ft_init_data_zoom(t_init data, double x, double y,
 		double h);
 t_init				ft_init_data_dezoom(t_init data, double x, double y,

@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/29 14:29:33 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/29 14:46:48 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/29 15:09:04 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int		rand_mandel(int n, t_stock *param)
 {
 	if (n == 53)
+	{
+		free(param->data);
 		exit(1);
+	}
 	if (n == 8)
 	{
 		param->color = rand();
@@ -27,7 +30,10 @@ int		rand_mandel(int n, t_stock *param)
 int		rand_julia(int n, t_stock *param)
 {
 	if (n == 53)
+	{
+		free(param->data);
 		exit(1);
+	}
 	else if (n == 1 && param->stopjulia == 1)
 		param->stopjulia = 0;
 	else if (n == 1 && param->stopjulia == 0)

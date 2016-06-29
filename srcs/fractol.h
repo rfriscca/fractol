@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 12:51:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/29 14:33:15 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/29 15:40:27 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct		s_stock
 	int				size_line;
 	int				stopjulia;
 	int				color;
+	double			h;
 	t_init			*data;
 }					t_stock;
 

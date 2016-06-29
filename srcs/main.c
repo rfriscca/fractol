@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:43:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/29 14:48:03 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/29 15:42:14 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		main(int argc, char **argv)
 		ft_putstr("3 : Sierpinski carpet\n");
 		exit(1);
 	}
+	stock.h = 1;
 	stock.color = 0xffffff;
 	stock.mlx = mlx_init();
 	stock.width = (X2 - X1) * ZOOM;

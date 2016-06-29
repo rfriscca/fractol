@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/29 14:29:33 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/29 15:09:04 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/29 15:44:47 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@ int		rand_mandel(int n, t_stock *param)
 		free(param->data);
 		exit(1);
 	}
-	if (n == 8)
+	else if (n == 15)
+	{
+		*param->data = ft_init_data(*param->data);
+		param->h = 1;
+		mandelbrot(*param, param->color);
+	}
+	else if (n == 8)
 	{
 		param->color = rand();
 		mandelbrot(*param, param->color);
@@ -38,6 +44,12 @@ int		rand_julia(int n, t_stock *param)
 		param->stopjulia = 0;
 	else if (n == 1 && param->stopjulia == 0)
 		param->stopjulia = 1;
+	else if (n == 15)
+	{
+		*param->data = ft_init_data_julia(*param->data, 0, 0);
+		param->h = 1;
+		julia(*param, param->color);
+	}
 	else if (n == 8)
 	{
 		param->color = rand();

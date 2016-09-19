@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/29 14:29:33 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/30 14:55:56 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/09/19 11:56:06 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		key_carpet(int n, t_stock *param)
 	if (n == 53)
 	{
 		free(param->data);
-		exit (1);
+		exit(1);
 	}
 	return (0);
 }

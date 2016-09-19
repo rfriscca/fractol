@@ -6,31 +6,13 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:30:28 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/09/19 13:16:45 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:28:23 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		swap_color(int n, int color)
-{
-	int			red;
-	int			green;
-	int			blue;
-
-	red = ((color & 0xff0000) >> 16);
-	green = ((color & 0x00ff00) >> 8);
-	blue = ((color & 0x0000ff));
-	if (n % 100 > 0 && n % 100 < 10)
-		green += rand();
-	else if (n % 100 >= 10 && n % 100 < 50)
-		red += rand();
-	else if (n % 100 >= 50 && n % 100 < 85)
-		blue += rand();
-	return ((red << 16) + (green << 8) + blue);
-}
-
-void	mandelbrot_2(t_count i, t_ima z, t_stock stock, int color)
+void	mandelbrot_2_custom(t_count i, t_ima z, t_stock stock, int color)
 {
 	double		save;
 
@@ -48,7 +30,7 @@ void	mandelbrot_2(t_count i, t_ima z, t_stock stock, int color)
 	}
 }
 
-void	mandelbrot(t_stock stock, int color)
+void	mandelbrot_custom(t_stock stock, int color)
 {
 	t_ima	z;
 	t_count	i;
@@ -61,12 +43,12 @@ void	mandelbrot(t_stock stock, int color)
 	{
 		while (i.y < stock.height)
 		{
-			z.c_r = (double)i.x / stock.data->zoom + stock.data->x1;
+			z.c_r = fabs((double)i.x / stock.data->zoom + stock.data->x1);
 			z.c_i = (double)i.y / stock.data->zoom + stock.data->y1;
 			z.z_r = 0;
 			z.z_i = 0;
 			i.i = 0;
-			mandelbrot_2(i, z, stock, color);
+			mandelbrot_2_custom(i, z, stock, color);
 			++i.y;
 		}
 		i.y = 0;

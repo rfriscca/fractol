@@ -6,7 +6,7 @@
 #    By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/16 13:06:21 by rfriscca          #+#    #+#              #
-#    Updated: 2016/06/29 14:47:06 by rfriscca         ###   ########.fr        #
+#    Updated: 2016/09/19 13:27:58 by rfriscca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS = init_data.c          \
 	   sierpinski_carpet.c	\
 	   main.c               \
 	   mandelbrot.c         \
+	   mandelbrot_custom.c	\
 	   mlx_pixel_put_img.c  \
 	   mouse_event.c		\
 	   key_event.c			\

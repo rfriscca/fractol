@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:43:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/30 14:55:22 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/09/19 13:56:49 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void	choose_fractal2(int n, t_stock *stock)
 		mlx_mouse_hook(stock->win, mouse_event_carpet, stock);
 		sierpinski_carpet(*stock, 0, 0, 0);
 	}
+	else if (n == 4)
+	{
+		stock->data->width = (X2 - X1) * ZOOM;
+		*stock->data = ft_init_data(*stock->data);
+		mlx_mouse_hook(stock->win, mouse_event_custom, stock);
+		mlx_key_hook(stock->win, rand_mandel_custom, stock);
+		mandelbrot_custom(*stock, stock->color);
+	}
 }
 
 void	choose_fractal(int n, t_stock *stock)
@@ -42,12 +50,12 @@ void	choose_fractal(int n, t_stock *stock)
 		mlx_key_hook(stock->win, rand_mandel, stock);
 		mandelbrot(*stock, stock->color);
 	}
-	else if (n == 2 || n == 3)
+	else if (n == 2 || n == 3 || n == 4)
 		choose_fractal2(n, stock);
 	else
 	{
 		ft_putstr("Please enter one parameter\n1 : Mandelbrot\n2 : Julia\n");
-		ft_putstr("3 : Sierpinski carpet\n");
+		ft_putstr("3 : Sierpinski carpet\n4 : Special Mandelbrot\n");
 		exit(1);
 	}
 }
@@ -60,7 +68,7 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 	{
 		ft_putstr("Please enter one parameter\n1 : Mandelbrot\n2 : Julia\n");
-		ft_putstr("3 : Sierpinski carpet\n");
+		ft_putstr("3 : Sierpinski carpet\n4 : Special Mandelbrot\n");
 		exit(1);
 	}
 	stock.h = 1;
